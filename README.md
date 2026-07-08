@@ -37,3 +37,9 @@ file: `_4_2_LibraryTest`
 Java 17+ 
 
 `./test.sh` (Windows: `test.cmd`).
+
+---
+
+## References
+
+- [Testing Without Mocks: Nullables](https://www.jamesshore.com/v2/projects/nullables) — James Shore
