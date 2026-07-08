@@ -1,0 +1,12 @@
+[tools]
+java = "temurin-17"
+
+[tasks.test]
+description = "Run all tests"
+run = "./test.sh"
+run_windows = ".\\test.cmd"
+
+[tasks.doctor]
+description = "Show Java and Maven versions"
+run = "java -version && ./mvnw -version"
+run_windows = "java -version && .\\mvnw.cmd -version"
