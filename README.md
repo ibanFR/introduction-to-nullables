@@ -32,11 +32,25 @@ file: `_4_2_LibraryTest`
 
 ---
 
-## Running the tests
+## Setup
 
-Java 17+ 
+Needs Java 17. The easy path is [mise](https://mise.jdx.dev) — it reads
+`mise.toml` and installs the right Java for you.
 
-`./test.sh` (Windows: `test.cmd`).
+Install mise:
+- macOS: `brew install mise`
+- Linux/macOS: `curl https://mise.run | sh`
+- Windows: `winget install jdx.mise`
+
+Restart your shell, then in the project folder:
+
+    mise install     # provisions Java 17
+    mise run test    # runs the tests
+
+`mise run doctor` prints the Java and Maven versions.
+
+No mise? Install Temurin/OpenJDK 17 yourself (SDKMAN, `brew install temurin@17`,
+or https://adoptium.net), then run `./test.sh` (Windows: `test.cmd`).
 
 ---
 
