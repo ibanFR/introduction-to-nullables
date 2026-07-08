@@ -3,6 +3,9 @@ package com.lexler.legacy;
 import org.junit.jupiter.api.Test;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,14 +23,14 @@ class _1_MockedLoanTest {
         // arrange:
         // DataSource → Connection → PreparedStatement → empty ResultSet
         DataSource dataSource = mock(DataSource.class);
-        // create a mocked Connection
-        // create a mocked PreparedStatement
-        // create a mocked ResultSet
+        Connection connection = mock(Connection.class);
+        PreparedStatement statement = mock(PreparedStatement.class);
+        ResultSet resultSet = mock(ResultSet.class);
 
-        // make dataSource.getConnection() return the connection: when(..).thenReturn(..)
-        // make connection.prepareStatement() return the statement when called with anyString()
-        // make statement.executeQuery() return the resultSet
-        // the database is empty: make resultSet.next() return false
+        when(dataSource.getConnection()).thenReturn(connection);
+        when(connection.prepareStatement(anyString())).thenReturn(statement);
+        when(statement.executeQuery()).thenReturn(resultSet);
+        when(resultSet.next()).thenReturn(false); // empty database
 
         Loans loans = new Loans(dataSource);
 
