@@ -31,13 +31,13 @@ class _4_2_LibraryTest {
 
     @Test
     void printsTheReminderLetter() {
-//        Book overdueBook = new Book("Solaris", TOM, DUE_LAST_YEAR);
-//        Library library = Library.createNull(TODAY, overdueBook);
-//        OutputTracker<String> printed = library.trackPrintedReminders();
-//
-//        library.remindOverdue();
-//
-//        assertThat(printed.data()).containsExactly("Tom: please return 'Solaris'");
+        Book overdueBook = new Book("Solaris", TOM, DUE_LAST_YEAR);
+        Library library = Library.createNull(TODAY, overdueBook);
+        OutputTracker<String> printed = library.trackPrintedReminders();
+
+        library.remindOverdue();
+
+        assertThat(printed.data()).containsExactly("Tom: please return 'Solaris'");
     }
 
     // Bonus:

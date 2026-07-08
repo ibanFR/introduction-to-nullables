@@ -4,6 +4,7 @@ import com.lexler.refactored.domain.Book;
 import com.lexler.refactored.domain.Borrower;
 import com.lexler.refactored.infra.Clock;
 import com.lexler.refactored.infra.Printer;
+import com.lexler.refactored.util.OutputTracker;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,6 +24,14 @@ public class Library {
         this.clock = clock;
     }
 
+    public static Library createNull() {
+        return new Library(Loans.createNull(), Printer.createNull(), Clock.createNull());
+    }
+
+    public static Library createNull(LocalDate today, Book... borrowedBooks) {
+        return new Library(Loans.createNull(borrowedBooks), Printer.createNull(), Clock.createNull(today));
+    }
+
     public int overdueCount() {
         return loans.overdue(clock.today()).size();
     }
@@ -31,6 +40,10 @@ public class Library {
         LocalDate today = clock.today();
         overdueTitlesByBorrower(today).forEach(
             (borrower, titles) -> printer.printReminder(borrower.name(), titles));
+    }
+
+    public OutputTracker<String> trackPrintedReminders() {
+        return printer.trackPrintedLines();
     }
 
     private Map<Borrower, List<String>> overdueTitlesByBorrower(LocalDate today) {

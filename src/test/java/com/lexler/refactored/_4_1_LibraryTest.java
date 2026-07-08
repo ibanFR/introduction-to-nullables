@@ -29,11 +29,11 @@ class _4_1_LibraryTest {
 
     @Test
     void oneOverdueBook() {
-//        Book overdueBook = new Book("Solaris", TOM, DUE_LAST_YEAR);
-//        Library library = Library.createNull(TODAY, overdueBook);
-//
-//        int overdueCount = library.overdueCount();
-//
-//        assertThat(overdueCount).isEqualTo(1);
+        Book overdueBook = new Book("Solaris", TOM, DUE_LAST_YEAR);
+        Library library = Library.createNull(TODAY, overdueBook);
+
+        int overdueCount = library.overdueCount();
+
+        assertThat(overdueCount).isEqualTo(1);
     }
 }

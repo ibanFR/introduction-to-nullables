@@ -21,10 +21,10 @@ class _3_1_LibraryTest {
 
     @Test
     void zeroOverdue() {
-//        Library library = Library.createNull();
-//
-//        int overdueCount = library.overdueCount();
-//
-//        assertThat(overdueCount).isZero();
+        Library library = Library.createNull();
+
+        int overdueCount = library.overdueCount();
+
+        assertThat(overdueCount).isZero();
     }
 }
